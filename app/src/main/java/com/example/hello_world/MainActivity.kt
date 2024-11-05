@@ -24,6 +24,16 @@ class MainActivity : AppCompatActivity() {
         val productPrice = editTextProductPrice?.text.toString()
         val isImported = checkBox?.isChecked
 
+        if (productName.isEmpty()) {
+            Toast.makeText(this, "O nome do produto é obrigatório.", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (productPrice.isEmpty()) {
+            Toast.makeText(this, "O preço do produto é obrigatório.", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         val result = "Produto: $productName\nPreço: R$ $productPrice\nImportado: ${if (isImported == true) "Sim" else "Não"}"
 
         Toast.makeText(this, result, Toast.LENGTH_SHORT).show()
